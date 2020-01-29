@@ -5,6 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     price: DataTypes.DECIMAL
   }, {});
   products.associate = function(models) {
+    products.hasMany(models.orderItens)
     // associations can be defined here
   };
   return products;
