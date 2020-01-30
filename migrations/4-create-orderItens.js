@@ -13,11 +13,6 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: {model:'products', key:'id'},
       },
-      productExtraId: {
-        allowNull: true,
-        type: Sequelize.INTEGER,
-        references: {model:'products', key:'id'},
-      },
       orderId: {
         allowNull: false,
         type: Sequelize.INTEGER,

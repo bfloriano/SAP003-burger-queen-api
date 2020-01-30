@@ -2,7 +2,7 @@
   "development": {
     "username": "postgres",
     "password": null,
-    "database": "banana",
+    "database": "burger_queen",
     "host": "db",
     "dialect": "postgres",
     "operatorsAliases": false

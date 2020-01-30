@@ -4,6 +4,7 @@ import cors from 'cors'
 // import { DatabaseError } from 'sequelize/types'
 import productRoutes from './routes/productRoutes';
 
+
 const app = express();
 
 app.use(cors())
@@ -13,6 +14,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 const port = process.env.PORT || 3000;
 
 app.use('/api/products', productRoutes);
+// app.use('/api/orders', productRoutes);
 
 // when a random route is inputed
 app.get('*', (req, res) => res.status(200).send({
@@ -23,7 +25,6 @@ app.listen(port, () => {
   console.log(`Server is running on PORT ${port}`);
 });
 
-//module.exports = app
 export default app
 
 
