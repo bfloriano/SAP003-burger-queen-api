@@ -1,15 +1,3 @@
-// import models from '../../models/index';
-
-// const getAll = async (req, res) => {
-//     const products = await models.products.findAll({raw: true});
-//     res.json(products);
-// };
-
-// export default {
-//     getAll
-// }
-
-
 import productsService from '../services/productsService'
 import Util from '../utils/Utils'
 
@@ -17,7 +5,6 @@ const util = new Util()
 
 class ProductController {
   static async getAllProducts(req, res) {
-      console.log('teste')
     try {
       const allProducts = await productsService.getAllProducts()
       if (allProducts.length > 0) {
@@ -33,7 +20,7 @@ class ProductController {
   }
 
   static async addProduct(req, res) {
-    
+
     if (!req.body.name || !req.body.price || !req.body.category || !req.body.type) {
       util.setError(400, 'Please provide complete details')
       return util.send(res)
@@ -70,31 +57,31 @@ class ProductController {
     }
   }
 
-    static async getProduct(req, res) {
+  static async getProduct(req, res) {
 
-        const { id } = req.params
+    const { id } = req.params
 
-        if (!Number(id)) {
-            util.setError(400, 'Please input a valid numeric value')
-            return util.send(res)
-        }
-        try {
-          
-           
-            const theProduct = await productsService.getProduct(id)
-
-            if (!theProduct) {
-                util.setError(404, `Cannot find Product with the id ${id}`)
-            } else {
-                util.setSuccess(200, 'Found Product', theProduct)
-            }
-            return util.send(res)
-        } catch (error) {
-          
-            util.setError(404, error)
-            return util.send(res)
-        }
+    if (!Number(id)) {
+      util.setError(400, 'Please input a valid numeric value')
+      return util.send(res)
     }
+    try {
+
+
+      const theProduct = await productsService.getProduct(id)
+
+      if (!theProduct) {
+        util.setError(404, `Cannot find Product with the id ${id}`)
+      } else {
+        util.setSuccess(200, 'Found Product', theProduct)
+      }
+      return util.send(res)
+    } catch (error) {
+
+      util.setError(404, error)
+      return util.send(res)
+    }
+  }
 
   static async deleteProduct(req, res) {
     const { id } = req.params

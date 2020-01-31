@@ -1,4 +1,3 @@
-
 import ordersItensService from '../services/ordersItensService'
 import Util from '../utils/Utils'
 
@@ -6,7 +5,6 @@ const util = new Util()
 
 class OrdersItensController {
   static async getAllOrdersItens(req, res) {
-      console.log('teste')
     try {
       const allOrdersItens = await ordersItensService.getAllOrdersItens()
       if (allOrdersItens.length > 0) {
@@ -22,7 +20,7 @@ class OrdersItensController {
   }
 
   static async addOrdersItens(req, res) {
-    if (!req.body.productId || !req.body.orderId) {
+    if (!req.body.productId || !req.body.orderId || !req.body.qtd) {
       util.setError(400, 'Please provide complete details')
       return util.send(res)
     }

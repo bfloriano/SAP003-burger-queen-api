@@ -1,5 +1,3 @@
-
-
 import ordersService from '../services/ordersService'
 import Util from '../utils/Utils'
 
@@ -7,7 +5,6 @@ const util = new Util()
 
 class OrderController {
   static async getAllOrders(req, res) {
-      console.log('teste')
     try {
       const allOrders = await ordersService.getAllOrders()
       if (allOrders.length > 0) {
@@ -23,7 +20,7 @@ class OrderController {
   }
 
   static async addOrder(req, res) {
-    if (!req.body.clientName || !req.body.status || !req.body.tableNumber) {
+    if (!req.body.clientName || !req.body.status || !req.body.tableId) {
       util.setError(400, 'Please provide complete details')
       return util.send(res)
     }

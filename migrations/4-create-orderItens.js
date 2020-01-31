@@ -18,6 +18,10 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: {model:'orders', key:'id'},
       },
+      qtd: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
