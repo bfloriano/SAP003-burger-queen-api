@@ -8,10 +8,10 @@
     "operatorsAliases": false
   },
   "test": {
-    "username": "root",
+    "username": "postgres",
     "password": null,
     "database": "database_test",
-    "host": "127.0.0.1",
+    "host": "db",
     "dialect": "postgres",
     "operatorsAliases": false
   },
